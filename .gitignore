@@ -20,7 +20,8 @@ data/interim/
 data/processed/
 
 # Models / artifacts
-models/
+/models/
+!/models/.gitkeep
 *.pkl
 *.joblib
 *.pt

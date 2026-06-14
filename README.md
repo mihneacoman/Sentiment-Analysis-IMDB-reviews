@@ -1,4 +1,4 @@
-Movie Review Sentiment and Complaint Reason Analysis
+# Movie Review Sentiment and Complaint Reason Analysis
 
 This project studies sentiment analysis on IMDB movie reviews, starting from the classical binary classification task of distinguishing positive from negative reviews. The initial objective is to compare traditional machine learning methods with modern transformer-based models on movie review sentiment classification.
 
@@ -10,7 +10,7 @@ Maas, Andrew L., Daly, Raymond E., Pham, Peter T., Huang, Dan, Ng, Andrew Y., & 
 
 ## Dataset
 
-The experiments use a balanced subset of the IMDB movie review dataset. Each review is associated with a binary sentiment label: negative or positive.
+The experiments use a balanced subset of the IMDB movie review dataset. Each review is associated with a binary sentiment label: negative or positive. The raw dataset encodes sentiment as `0` for positive and `1` for negative. In this project, the labels are remapped to the more conventional format: `0` for negative and `1` for positive.
 
 For the initial sentiment classification experiments, the dataset is divided as follows:
 

@@ -27,11 +27,21 @@ def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     if "text" not in df.columns or "sentiment" not in df.columns:
         raise ValueError("Expected columns: 'text' and 'sentiment'.")
 
-    df = df.rename(columns={"sentiment": "label"})
+    df = df[["text", "sentiment"]]
+
+    # Raw dataset convention: 0 = positive, 1 = negative
+    # Project convention: 0 = negative, 1 = positive
+    df["label"] = df["sentiment"].map({
+        0: 1,
+        1: 0,
+    })
+
     df = df[["text", "label"]]
 
     df["text"] = df["text"].astype(str)
     df["label"] = df["label"].astype(int)
+
+    df = df.drop_duplicates(subset="text").reset_index(drop=True)
 
     if set(df["label"].unique()) != {0, 1}:
         raise ValueError(f"Unexpected labels: {df['label'].unique()}")
